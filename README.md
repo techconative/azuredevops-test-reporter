@@ -1,3 +1,1 @@
-# AzureDevOps Test Reporter
-
-work in progress
+# AzureDevOps Test Reporter TS
