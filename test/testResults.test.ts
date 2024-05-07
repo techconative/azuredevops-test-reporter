@@ -12,6 +12,7 @@ const azureConfig: IAzureConfig = {
   planId: 12,
   suiteId: 14,
   runName: 'sample',
+  configurationIds: [1]
 }
 
 describe('setTestResult', () => {

@@ -13,6 +13,7 @@ const validAzureConfig: IAzureConfig = {
   planId: 12,
   suiteId: 14,
   runName: 'sample',
+  configurationIds: [4]
 }
 
 describe('Constructor', () => {

@@ -28,7 +28,8 @@ describe("Validate Azure DevOps config provided", () => {
       projectId: "11",
       planId: 1,
       suiteId: 2,
-      runName: "{The Test Run name that should be assigned for Runs created by this reporter}"
+      runName: "{The Test Run name that should be assigned for Runs created by this reporter}",
+      configurationIds:[5]
     }
 
     const result = validate(completeConf);
@@ -42,7 +43,8 @@ describe("Validate Azure DevOps config provided", () => {
       projectId: "11",
       planId: 1,
       suiteId: 2,
-      runName: "{The Test Run name that should be assigned for Runs created by this reporter}"
+      runName: "{The Test Run name that should be assigned for Runs created by this reporter}",
+      configurationIds:[5]
     }
 
     const result = validate(completeConf);

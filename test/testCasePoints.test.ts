@@ -11,6 +11,7 @@ const azureConfig: IAzureConfig = {
   planId: 12,
   suiteId: 14,
   runName: 'sample',
+  configurationIds:[1]
 }
 
 describe('Validate http call to retrieve the testCase in the test Run', () => {
