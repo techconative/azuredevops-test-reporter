@@ -6,5 +6,5 @@ export interface IAzureConfig {
   suiteId: number
   runName: string
   caseIdRegex?: string
-  configurationIds: number []
+  configurationName?: string
 }

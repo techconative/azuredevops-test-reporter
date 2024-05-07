@@ -22,21 +22,18 @@ export async function getPoints(
       .catch((error) => {
         throw new Error(error)
       })
-
+    
     const testCasePointIds: number[] = testCasesPoints.data.value
-      .filter((val: { pointAssignments: { id: number }[] }) => {
+      .flatMap((val: { pointAssignments: { id: number, configurationName?: string }[] }) => {
         if (val.pointAssignments) {
-          return true
+          val.pointAssignments
+            .filter(assignment => !config.configurationName || assignment.configurationName === config.configurationName)
+            .map(assignment => assignment.id)
         }
-        return false
-      })
-      .map(
-        (val: { pointAssignments: { id: number }[] }) =>
-          val.pointAssignments[0]?.id
-      )
-
+      }
+    );
+    
     fullTestCasePointIds = [...fullTestCasePointIds, ...testCasePointIds]
-
     continuationToken = testCasesPoints.headers['x-ms-continuationtoken']
   } while (continuationToken !== undefined)
 
