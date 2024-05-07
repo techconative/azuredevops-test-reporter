@@ -10,10 +10,11 @@ export class RunCreateModel implements TestInterfaces.RunCreateModel {
   constructor(
     name: string,
     plan: TestInterfaces.ShallowReference,
-    pointIds: number[]
+    pointIds: number[],
+    configurationIds: number[],
   ) {
     this.automated = true
-    this.configurationIds = []
+    this.configurationIds = configurationIds
     this.name = name
     this.plan = plan
     this.pointIds = pointIds

@@ -16,7 +16,7 @@ export async function createTestRun(
   }
 
   const pointIds = await getPoints(axiosClient, azureConfig)
-  const testRunModel = new RunCreateModel(azureConfig.runName, plan, pointIds)
+  const testRunModel = new RunCreateModel(azureConfig.runName, plan, pointIds,azureConfig.configurationIds)
 
   return azureClient.createTestRun(testRunModel, azureConfig.projectId)
 }
