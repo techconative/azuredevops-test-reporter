@@ -1,5 +1,6 @@
 import { IAzureConfig } from '../src/interfaces/IAzureConfig';
-import {validate} from '../src/services/validation/index'
+import { validate } from '../src/services/validation/index'
+import TestConfig from './test-config'
 
 describe("Validate Azure DevOps config provided", () => {
 
@@ -11,7 +12,7 @@ describe("Validate Azure DevOps config provided", () => {
 
   it("validate should fail if are missing required params", ()=>{
     const conf = {
-      pat: "vgrdpg4njfmzzcuoxwb4vja3trwbyafim4x4oww7sbcfbopfb3bq",
+      pat: TestConfig.pat,
       organizationUrl: "{Organization Name}",
       projectId: "{Project Name}",
       runName: "{The Test Run name that should be assigned for Runs created by this reporter}"
@@ -23,7 +24,7 @@ describe("Validate Azure DevOps config provided", () => {
 
   it("validate should success if are present all the required params", ()=>{
     const completeConf = {
-      pat: "vgrdpg4njfmzzcuoxwb4vja3trwbyafim4x4oww7sbcfbopfb3bq",
+      pat: TestConfig.pat,
       organizationUrl: "{Organization Name}",
       projectId: "11",
       planId: 1,
