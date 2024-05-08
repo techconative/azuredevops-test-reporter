@@ -39,4 +39,6 @@ jobs:
       - name: Install modules
         run: yarn
       - name: Run tests
-        run: yarn test
+        run: |
+          export AZURE_DEVOPS_PAT="${{ secrets.AZURE_DEVOPS_PAT }}"
+          yarn test
