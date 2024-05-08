@@ -23,10 +23,14 @@ export async function getPoints(
     
     const testCasePointIds: number[] = testCasesPoints.data.value
       .flatMap((val: { pointAssignments: { id: number, configurationName?: string }[] }) => {
-        if (val.pointAssignments) {
-          val.pointAssignments
-            .filter(assignment => !config.configurationName || assignment.configurationName === config.configurationName)
+        if (val.pointAssignments && config.configurationName) {
+          return val.pointAssignments
+            .filter(assignment => assignment.configurationName === config.configurationName)
             .map(assignment => assignment.id)
+        } else if (val.pointAssignments && !config.configurationName) {
+          return val.pointAssignments.map(assignment => assignment.id)
+        } else {
+          return []
         }
       }
     );
