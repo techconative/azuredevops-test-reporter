@@ -10,10 +10,8 @@ export async function getPoints(
       throw new Error('Missing valid Azure Devops client')
     })
   }
-
   let continuationToken = ''
   let fullTestCasePointIds: number[] = []
-
   do {
     const testCasesPoints = await axiosClient
       .get(

@@ -12,7 +12,7 @@ const validAzureConfig: IAzureConfig = {
   projectId: '3cf7dbc9-cb1e-4240-93f2-9a5960ab3945',
   planId: 12,
   suiteId: 14,
-  runName: 'sample'
+  runName: 'sample',
 }
 
 describe('Constructor', () => {
