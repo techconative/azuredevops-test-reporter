@@ -40,9 +40,6 @@ jobs:
         run: yarn
       - name: Run tests
         run: |
-          if [ "${{ matrix.os }}" == 'ubuntu-latest' ]; then
-            export AZURE_DEVOPS_PAT="${{ secrets.AZURE_DEVOPS_PAT }}"
-          elif [ "${{ matrix.os }}" == 'windows-latest' ]; then
-            echo "::set-env name=AZURE_DEVOPS_PAT::${{ secrets.AZURE_DEVOPS_PAT }}"
-          fi
+          export AZURE_DEVOPS_PAT="${{ secrets.AZURE_DEVOPS_PAT }}"
+          echo "::set-env name=AZURE_DEVOPS_PAT::${{ secrets.AZURE_DEVOPS_PAT }}"
           yarn test
