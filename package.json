@@ -1,6 +1,6 @@
 {
   "name": "azuredevops-test-reporter-ts",
-  "version": "1.1.0",
+  "version": "1.0.4",
   "description": "Azure DevOps Test Reporter TS to inject result of automatic test run in Azure DevOps TestPlan",
   "type": "module",
   "types": "dist/esm/index.d.ts",
