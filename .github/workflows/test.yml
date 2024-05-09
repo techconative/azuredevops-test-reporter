@@ -38,7 +38,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Install modules
         run: yarn
-      - name: Run tests
+      - name: Set up environment variable
         run: |
-          export AZURE_DEVOPS_PAT="${{ secrets.AZURE_DEVOPS_PAT }}"
-          yarn test
+          echo "AZURE_DEVOPS_PAT=${{ secrets.AZURE_DEVOPS_PAT }}" >> $GITHUB_ENV
+      - name: Run tests
+        run: yarn test
