@@ -7,21 +7,21 @@ import TestConfig from './test-config'
 
 const azureConfig: IAzureConfig = {
   pat: TestConfig.pat,
-  organizationUrl: 'https://dev.azure.com/organization',
-  projectId: '3cf7dbc9-cb1e-4240-93f2-9a5960ab3945',
-  planId: 12,
-  suiteId: 14,
-  runName: 'sample',
+  organizationUrl: TestConfig.orgUrl,
+  projectId: TestConfig.projId,
+  planId: +TestConfig.planId,
+  suiteId: +TestConfig.suiteId,
+  runName: TestConfig.runName,
 }
 
 const azureConfigWithConfigName: IAzureConfig = {
   pat: TestConfig.pat,
-  organizationUrl: 'https://dev.azure.com/organization',
-  projectId: '3cf7dbc9-cb1e-4240-93f2-9a5960ab3945',
-  planId: 12,
-  suiteId: 14,
-  runName: 'sample',
-  configurationName: 'stage',
+  organizationUrl: TestConfig.orgUrl,
+  projectId: TestConfig.projId,
+  planId: +TestConfig.planId,
+  suiteId: +TestConfig.suiteId,
+  runName: TestConfig.runName,
+  configurationName: TestConfig.configName,
 }
 
 describe('Validate http call to retrieve the testCase in the test Run', () => {

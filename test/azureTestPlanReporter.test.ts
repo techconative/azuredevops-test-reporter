@@ -9,11 +9,11 @@ import TestConfig from './test-config'
 
 const validAzureConfig: IAzureConfig = {
   pat: TestConfig.pat,
-  organizationUrl: 'https://dev.azure.com/organization',
-  projectId: '3cf7dbc9-cb1e-4240-93f2-9a5960ab3945',
-  planId: 12,
-  suiteId: 14,
-  runName: 'sample',
+  organizationUrl: TestConfig.orgUrl,
+  projectId: TestConfig.projId,
+  planId: +TestConfig.planId,
+  suiteId: +TestConfig.suiteId,
+  runName: TestConfig.runName,
 }
 
 describe('Constructor', () => {
@@ -28,9 +28,9 @@ describe('Constructor', () => {
   it('Should throw Error if config not valid', () => {
 
     const notValidAzureConfig = {
-      planId: 12,
-      suiteId: 14,
-      runName: 'sample',
+    planId: +TestConfig.planId,
+    suiteId: +TestConfig.suiteId,
+    runName: TestConfig.runName,
     }
 
     const result = () => new AzureTestPlanReporter(notValidAzureConfig as unknown as IAzureConfig)
