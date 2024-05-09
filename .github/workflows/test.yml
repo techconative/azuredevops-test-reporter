@@ -39,7 +39,12 @@ jobs:
       - name: Install modules
         run: yarn
       - name: Set up environment variable
+        if: ${{ matrix.os == 'windows-latest' }}
         run: |
-          echo "AZURE_DEVOPS_PAT=${{ secrets.AZURE_DEVOPS_PAT }}" >> $GITHUB_ENV
+          echo "::set-env name=AZURE_DEVOPS_PAT::${{ secrets.AZURE_DEVOPS_PAT }}"
+      - name: Set up environment variable
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: |
+          export AZURE_DEVOPS_PAT="${{ secrets.AZURE_DEVOPS_PAT }}"
       - name: Run tests
         run: yarn test
