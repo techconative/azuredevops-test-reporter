@@ -19,6 +19,8 @@ on:
     branches:
       - main
       - master
+env:
+  AZURE_DEVOPS_PAT: "${{ secrets.AZURE_DEVOPS_PAT }}"
 
 jobs:
   test:
@@ -39,7 +41,4 @@ jobs:
       - name: Install modules
         run: yarn
       - name: Run tests
-        run: |
-          export AZURE_DEVOPS_PAT="${{ secrets.AZURE_DEVOPS_PAT }}"
-          echo "::set-env name=AZURE_DEVOPS_PAT::${{ secrets.AZURE_DEVOPS_PAT }}"
-          yarn test
+        run: yarn test
