@@ -21,6 +21,12 @@ on:
       - master
 env:
   AZURE_DEVOPS_PAT: "${{ secrets.AZURE_DEVOPS_PAT }}"
+  ORGANIZATION_URL: "${{ secrets.ORGANIZATION_URL }}"
+  PROJECT_ID: "${{ secrets.PROJECT_ID }}"
+  PLAN_ID: 12
+  SUITE_ID: 14
+  RUN_NAME: 'sample'
+  CONFIGURATION_NAME: 'stage'
 
 jobs:
   test:
