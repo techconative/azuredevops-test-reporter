@@ -10,10 +10,8 @@ export async function getPoints(
       throw new Error('Missing valid Azure Devops client')
     })
   }
-
   let continuationToken = ''
   let fullTestCasePointIds: number[] = []
-
   do {
     const testCasesPoints = await axiosClient
       .get(
@@ -22,21 +20,22 @@ export async function getPoints(
       .catch((error) => {
         throw new Error(error)
       })
-
+    
     const testCasePointIds: number[] = testCasesPoints.data.value
-      .filter((val: { pointAssignments: { id: number }[] }) => {
-        if (val.pointAssignments) {
-          return true
+      .flatMap((val: { pointAssignments: { id: number, configurationName?: string }[] }) => {
+        if (val.pointAssignments && config.configurationName) {
+          return val.pointAssignments
+            .filter(assignment => assignment.configurationName === config.configurationName)
+            .map(assignment => assignment.id)
+        } else if (val.pointAssignments && !config.configurationName) {
+          return val.pointAssignments.map(assignment => assignment.id)
+        } else {
+          return []
         }
-        return false
-      })
-      .map(
-        (val: { pointAssignments: { id: number }[] }) =>
-          val.pointAssignments[0]?.id
-      )
-
+      }
+    );
+    
     fullTestCasePointIds = [...fullTestCasePointIds, ...testCasePointIds]
-
     continuationToken = testCasesPoints.headers['x-ms-continuationtoken']
   } while (continuationToken !== undefined)
 

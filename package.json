@@ -1,6 +1,6 @@
 {
   "name": "azuredevops-test-reporter-ts",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Azure DevOps Test Reporter TS to inject result of automatic test run in Azure DevOps TestPlan",
   "type": "module",
   "types": "dist/esm/index.d.ts",
@@ -51,6 +51,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "azure-devops-node-api": "^11.1.1",
+    "dotenv": "^16.4.5",
     "validate": "^5.2.0"
   },
   "devDependencies": {
@@ -69,6 +70,7 @@
     "pinst": "^2.1.6",
     "prettier": "^2.4.0",
     "rollup": "^4.14.1",
+    "semantic-release": "^23.0.8",
     "ts-jest": "^27.0.5",
     "ts-loader": "^9.2.5",
     "typescript": "^4.4.3"
